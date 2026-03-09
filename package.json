@@ -1,0 +1,21 @@
+{
+  "name": "query-builder",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [],
+  "author": "Lucas Fabri DEV",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "node": "^22.22.1",
+    "tsx": "^4.21.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.3.5",
+    "typescript": "^5.9.3"
+  }
+}
