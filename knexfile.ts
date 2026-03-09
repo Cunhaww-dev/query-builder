@@ -1,8 +1,8 @@
-export default {
+export const config = {
   client: 'sqlite3',
   connection: {
-    // filename: './src/database/db.sqlite',
-    filename: '/mnt/c/dev/db/db.sqlite', // caminho absoluto para o banco de dados, necessário para o WSL acessar o arquivo do Windows
+    // filename: './src/database/sqlite.db',
+    filename: '/mnt/c/dev/db/database.db', // caminho absoluto para o banco de dados, necessário para o WSL acessar o arquivo do Windows
   },
   useNullAsDefault: true,
   migrations: {
