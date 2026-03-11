@@ -12,7 +12,10 @@ app.get('/', async (req: Request, res: Response) => {
 app.post('/courses', async (req: Request, res: Response) => {
   const { name } = req.body;
 
-  await knex('courses').insert({ name }); // inserindo um novo curso na tabela "courses" do banco de dados
+  //   await knex('courses').insert({ name }); // inserindo um novo curso na tabela "courses" do banco de dados
+
+  // Insert Raw
+  await knex.raw('INSERT INTO courses (name) VALUES (?)', [name]); // inserindo um novo curso na tabela "courses" do banco de dados usando raw query do knex
   res.status(210).json({ name });
 });
 
