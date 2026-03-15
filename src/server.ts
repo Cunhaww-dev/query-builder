@@ -19,4 +19,22 @@ app.post('/courses', async (req: Request, res: Response) => {
   res.status(210).json({ name });
 });
 
+app.post('/modules', async (req: Request, res: Response) => {
+  const { name, course_id } = req.body;
+
+  await knex('course_modules').insert({ name, course_id }); // inserindo um novo módulo na tabela "course_modules" do banco de dados usando o método insert do knex
+
+  return res.status(201).json({ name, course_id });
+});
+
+app.get('/modules', async (req: Request, res: Response) => {
+  const modules = await knex('course_modules').select();
+
+  if (modules.length === 0) {
+    return res.status(404).json({ message: 'No modules found' });
+  }
+
+  return res.json(modules);
+});
+
 app.listen(3333, () => console.log('Server is running on port 3333'));
