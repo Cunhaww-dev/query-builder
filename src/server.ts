@@ -37,4 +37,18 @@ app.get('/modules', async (req: Request, res: Response) => {
   return res.json(modules);
 });
 
+app.get('/courses/:id/modules', async (req: Request, res: Response) => {
+  const courses = await knex('courses')
+    .select(
+      'courses.id AS course_id',
+      'course_modules.id AS course_module_id',
+      'course_modules.name AS module',
+      'courses.name AS course',
+    )
+    .join('course_modules', 'courses.id', 'course_modules.course_id')
+    .where('courses.id', req.params.id); // Linha adicionada para selecionar apenas os módulos de determinado curso
+
+  return res.json(courses);
+});
+
 app.listen(3333, () => console.log('Server is running on port 3333'));
