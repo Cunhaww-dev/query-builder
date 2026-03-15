@@ -1,4 +1,4 @@
-export const config = {
+const config = {
   client: 'sqlite3',
   connection: {
     // filename: './src/database/sqlite.db',
@@ -9,4 +9,10 @@ export const config = {
     extensions: 'ts',
     directory: './src/database/migrations',
   },
+  seeds: {
+    extensions: 'ts',
+    directory: './src/database/seeds',
+  },
 };
+
+export default config;
